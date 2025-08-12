@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	
+	"github.com/websebarz/pokedexcli/internal/pokeapi"
 )
 
 type config struct {

@@ -10,7 +10,7 @@ import (
 func (c *Client) ListLocations(pageURL *string) (RespShallowLocations, error) {
 	url := baseURL + "/location-area"
 	if pageURL != nil {
-		url: *pageURL
+		url = *pageURL
 	}
 
 	req, err := http.NewRequest("GET", url, nil)
