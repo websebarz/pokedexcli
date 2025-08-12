@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type config struct {
@@ -37,5 +38,32 @@ func startRepl(cfg *config) {
 			fmt.Println("Unknown command")
 			continue
 		}
+	}
+}
+
+func cleanInput(txt string) []string {
+	output := strings.ToLower(txt)
+	words := strings.Fields(output)
+	return words
+}
+
+type cliCommand struct {
+	name string
+	description string
+	callback func(*config) error
+}
+
+func getCommands() map[string]cliCommand {
+	return map[string]cliCommand{
+		"help": {
+			name: "help",
+			description: "Displays a help message",
+			callback: commandHelp,
+		},
+		"exit": {
+			name: "exit",
+			description: "Exit the Pokedex",
+			callback: commandExit,
+		},
 	}
 }
