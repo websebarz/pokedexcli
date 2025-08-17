@@ -3,6 +3,7 @@ package pokeapi
 import (
 	"net/http"
 	"time"
+
 	"github.com/websebarz/pokedexcli/internal/pokecache"
 )
 
